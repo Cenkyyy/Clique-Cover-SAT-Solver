@@ -184,7 +184,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-i",
         "--input",
-        default="input.in",
+        default="instances/input.in",
         type=str,
         help=(
             "The instance file."
