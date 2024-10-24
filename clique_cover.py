@@ -129,8 +129,8 @@ class SAT_Solver():
                 vars.remove("v")
                 model.extend(int(v) for v in vars) 
 
-        #if 0 in model:
-        model.remove(0) # 0 is the end of the model, just ignore it
+        if 0 in model:
+            model.remove(0) # 0 is the end of the model, just ignore it
 
         print()
         print("###################################################################")
@@ -211,7 +211,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "-v",
         "--verb",
-        default=1,
+        default=0,
         type=int,
         choices=range(0,2),
         help=(
