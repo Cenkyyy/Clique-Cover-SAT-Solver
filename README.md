@@ -58,25 +58,19 @@ For the input example above, the output would be **YES**. This is because the un
 
 ## Encoding
 
-The problem is encoded through one set of variables `vertex_of_color_ID(vertex,color)` that represent a unique id for the vertex to be of color `color`. To convert the problem into a decision problem, we use these constraints:
+The problem is encoded through one set of variables `vertex_of_color_ID(vertex,color)` that represent a unique id for the vertex to be of color `color`. For simplicity, let's denote `vertex_of_color_ID(vertex,color)` by `f(v,color)`. To convert the problem into a decision problem, we use these constraints:
 
 - Each vertex needs to have some color
-  
-  $$
-  \bigwedge vertex\_to\_color\_ID(v, color), for\ all\ v\ and\ color.\
-  $$
+
+  $\bigwedge f(v, color)$, for each $v$ and $color$
 
 - Each vertex needs to have at most one color
-
-  $$
-  \bigwedge \neg vertex\_to\_color\_ID(v, color1) \lor \neg vertex\_to\_color\_ID(v, color2), for\ all\ v,\ color1\ and\ color2\ such\ that\ color2>color1.
-  $$
+  
+  $\bigwedge \neg f(v, color1) \lor \neg f(v, color2)$, for each $v$, $color1$ and $color2$ such that $color2 > color1$.
 
 - No vertices connected by an edge in complement of the graph can have the same color
-
-  $$
-  \bigwedge \neg vertex\_to\_color\_ID(u, color) \lor \neg vertex\_to\_color\_ID(v, color), for\ each\ complement\ edge\ (u,v)\ and\ color.\
-  $$
+  
+  $\bigwedge \neg f(u, color) \lor \neg f(v, color)$, for each vertex $u$ and $v$ in complement edge $(u,v)$ and $color$
 
 ## User documentation
 
