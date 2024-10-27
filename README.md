@@ -86,3 +86,32 @@ Command-line options:
 * `-o OUTPUT`, `--output OUTPUT` : Output file for the DIMACS format (i.e. the CNF formula).
 * `-s SOLVER`, `--solver SOLVER` : The SAT solver to be used.
 *  `-v {0,1}`, `--verb {0,1}` :  Verbosity of the SAT solver used.
+
+### Example instances
+
+* `input.in` : Represents a full graph of three vertices.
+* `input-unsat.in` : Clique cover number in this input is 1, so in order for input to be satisfiable, the edges must create a full graph, however, the graph is missing edges 2 3, 2 4 and 3 4, so it isn't a full graph and thus, is unsatisfiable. 
+* `input-medium.in` : Clique cover number in this input is 2, so the graph must contain 2 cliques in order to be satisfiable. Clique 1 contains vertices 1-10 and clique 2 contains vertices 11-20, so the input is satisfiable. 
+* `input-medium-unsat.in` : Same input as in `input-medium.in`, however, without the last edge between vertices 19 and 20. Because of that, the clique cover number would have to be at least 3 in order to be satisfiable.
+* `input-hard.in` : Created by the `clique_cover_input_generator.py`, contains an input of 200 vertices, cover number being 21 and number of edges being 19700. This input shows that the SAT-solver can handle bigger inputs as well, this one approximately takes 39 seconds on my machine.
+
+### Experiments
+
+Experiments were run on 11th Gen Intel Core i5-11400H CPU (2.7 GHz) and 8 GB RAM on Ubuntu inside WSL2 (Windows 11). Time was measured via the Glucose SAT solver, which displays real time and cpu time it took to produced an output. We focus on the `input-hard.in` example, and test clique cover number and measure it with SAT solver's real time it displays on output. 
+
+| clique cover number | time (sec) | solvable? |
+|--------------------:|:-----------|:---------:|
+  2 | 0.17 | N
+  6 | 0.61 | N
+ 20 | 7361.34 | Y
+ 21 | 39.4 | Y
+ 22 | 5.68 | Y
+ 26 | 1.53 | Y
+ 30 | 1.89 | Y
+ 34 | 2.14 | Y
+ 38 | 2.53 | Y
+ 42 | 2.94 | Y
+ 46 | 3.51 | Y
+ 50 | 3.73 | Y
+
+From the data we can assume that as we get closer to the smallest possible clique number from both sides, the time rises exponentially. Feel free to use the `clique_cover_input_generator.py` file to experiment other various inputs.
