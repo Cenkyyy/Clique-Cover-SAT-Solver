@@ -102,7 +102,14 @@ Experiments were run on 11th Gen Intel Core i5-11400H CPU (2.7 GHz) and 8 GB RAM
 | clique cover number | time (sec) | solvable? |
 |--------------------:|:-----------|:---------:|
   2 | 0.17 | N
+  3 | 0.24 | N
+  4 | 0.32 | N
+  5 | 0.40 | N
   6 | 0.61 | N
+  7 | 5.77 | N
+  8 | 16.73 | N
+  9 | 2+ hours | didn't finish
+  19 | 12+ hours | didn't finish
  20 | 7361.34 | Y
  21 | 39.4 | Y
  22 | 5.68 | Y
