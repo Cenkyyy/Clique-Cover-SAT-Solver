@@ -109,6 +109,7 @@ Experiments were run on 11th Gen Intel Core i5-11400H CPU (2.7 GHz) and 8 GB RAM
   7 | 5.77 | N
   8 | 16.73 | N
   9 | 2+ hours | didn't finish
+  10 | 3+ hours | didn't finish
   19 | 12+ hours | didn't finish
  20 | 7361.34 | Y
  21 | 39.4 | Y
